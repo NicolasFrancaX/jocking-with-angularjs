@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp" ng-controller="myController">
+  <head>
+    <script src="js/angular.min.js"></script>
+    <script src="js/controllers.js"></script>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>{{user.login}} (Nicolas França)</title>
+    <link rel="fluid-icon" href="https://github.com/fluidicon.png" title="GitHub">
+    <link rel="apple-touch-icon" sizes="57x57" href="https://github.com/apple-touch-icon-114.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="https://github.com/apple-touch-icon-114.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="https://github.com/apple-touch-icon-144.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="https://github.com/apple-touch-icon-144.png">
+    <link rel="assets" href="https://assets-cdn.github.com/">
+    <link rel="sudo-modal" href="https://github.com/sessions/sudo_modal">
+    <link rel="icon" type="image/x-icon" href="https://assets-cdn.github.com/favicon.ico">
+    <link href="css/github1.css" media="all" rel="stylesheet" type="text/css">
+    <link href="css/github2.css" media="all" rel="stylesheet" type="text/css">
+  </head>
+  <body class="logged_in  env-production linux  page-profile mine" ng-init="user">
+    <div class="wrapper">
+      <div id="start-of-content" class="accessibility-aid"></div>
+      <div class="site clearfix" role="main">
+        <div id="site-container" class="context-loader-container" data-pjax-container="">
+          <div class="container">
+            <div class="columns profilecols js-username" data-name="{{user.login}}">
+              <div class="column one-fourth vcard" itemscope="" itemtype="http://schema.org/Person">
+                <a href="https://github.com/account" aria-label="Change your avatar" class="vcard-avatar tooltipped tooltipped-s">
+                  <img alt="" class="avatar" data-user="3035640" height="230" src="{{user.avatar_url}}" width="230"></a>
+                <h1 class="vcard-names">
+                  <span class="vcard-fullname" itemprop="name">Nicolas França</span>
+                  <span class="vcard-username" itemprop="additionalName">{{user.login}}</span>
+                </h1>
+                <ul class="vcard-details">
+                  <li class="vcard-detail" itemprop="worksFor">{{user.company}}</li>
+                  <li class="vcard-detail" itemprop="homeLocation">{{user.location}}</li>
+                  <li class="vcard-detail"><a class="email" href="mailto:{{user.email}}">{{user.email}}</a></li>
+                  <li class="vcard-detail" itemprop="url"><a href="http://nicolasfrancax.github.io/" class="url" rel="nofollow me">http://nicolasfrancax.github.io</a></li>
+                </ul>
+                <div class="vcard-stats">
+                  <a class="vcard-stat" href="https://github.com/{{user.login}}/followers">
+                  <strong class="vcard-stat-count">{{user.followers}}</strong>
+                  <span class="text-muted">followers</span>
+                  </a>
+                  <a class="vcard-stat" href="https://github.com/{{user.login}}/following">
+                  <strong class="vcard-stat-count">{{user.following}}</strong>
+                  <span class="text-muted">Following</span>
+                  </a>
+                </div>
+              </div>
+              <div class="column three-fourths">
+                <div class="tabnav">
+                  <div class="tabnav-right">
+                  </div>
+                  <ul class="tabnav-tabs" data-pjax="" role="navigation">
+                    <li data-tab="repo">
+                      <a class="tabnav-tab selected">
+                      Repositories
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+                <div class="tab-content js-repo-filter">
+                  <div class="repo-tab">
+                    <ul class="repo-list js-repo-list" data-filterable-for="your-repos-filter" data-filterable-type="substring" ng-init="repositories">
+                      <li class="repo-list-item public source" ng-repeat="repo in repositories">
+                        <div class="repo-list-stats">
+                          {{repo.language}}
+                          <a class="repo-list-stat-item tooltipped tooltipped-s" aria-label="Stargazers">
+                          {{repo.stargazers_count}}
+                          </a>
+                          <a class="repo-list-stat-item tooltipped tooltipped-s" aria-label="Forks">
+                          {{repo.forks_count}}
+                          </a>
+                        </div>
+                        <h3 class="repo-list-name">
+                          <a href="{{repo.url}}">
+                          {{repo.name}}</a>
+                        </h3>
+                        <p class="repo-list-description">
+                          {{repo.description}}
+                        </p>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
