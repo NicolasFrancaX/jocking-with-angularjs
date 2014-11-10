@@ -16,5 +16,6 @@ app.controller('myController', function($scope, $http) {
 
   $scope.post = function(repo) {
     $http.post('https://api.github.com/user/repos?access_token=91b47e8c5d4f1ceb32e91d188e1e28afd0b01bfa', angular.copy(repo));
+    location.reload();
   }
 });
